@@ -14,6 +14,7 @@ import FounderSection from './components/Founder'
 import AccessSection from './components/AccessSection'
 import FaqSection from './components/FaqSection'
 import Footer from './components/Footer'
+import BuiltWithUsersSection from './components/BuiltWithUsersSection'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -36,6 +37,7 @@ function App() {
       <TechnologyApproach/>
       <FounderSection/>
       <AccessSection/>
+      <BuiltWithUsersSection/>
       <FaqSection/>
       <Footer/>
     </div>

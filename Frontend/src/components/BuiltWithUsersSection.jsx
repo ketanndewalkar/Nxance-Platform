@@ -1,14 +1,14 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Smartphone } from "lucide-react";
+import { MessageSquare } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function AccessSection() {
+export default function BuiltWithUsersSection() {
   const sectionRef = useRef(null);
   const contentRef = useRef(null);
-  const buttonsRef = useRef([]);
+  const buttonRef = useRef(null);
 
   useEffect(() => {
     /* CONTENT REVEAL */
@@ -27,16 +27,15 @@ export default function AccessSection() {
       }
     );
 
-    /* BUTTONS STAGGER */
+    /* BUTTON REVEAL */
     gsap.fromTo(
-      buttonsRef.current,
+      buttonRef.current,
       { y: 20, opacity: 0 },
       {
         y: 0,
         opacity: 1,
         duration: 0.6,
         ease: "power3.out",
-        stagger: 0.12,
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top 78%",
@@ -50,7 +49,7 @@ export default function AccessSection() {
       ref={sectionRef}
       className="
         relative w-full
-        px-20 py-32
+        px-20 py-10
         bg-[#fbfcfd]
         max-md:px-6 max-md:py-24
       "
@@ -65,42 +64,41 @@ export default function AccessSection() {
       >
         {/* LABEL */}
         <span className="text-[0.65rem] uppercase tracking-widest text-gray-500">
-          Access
+          Built With Users
         </span>
 
         {/* HEADLINE */}
         <h2 className="mt-4 font-serif text-[clamp(2rem,3vw,2.6rem)] leading-tight">
-          Start with the Nxance Android app.
+          Nxance is evolving in public.
         </h2>
 
         {/* SUBTEXT */}
-        <p className="mt-4 text-sm text-gray-600">
-          Android only · Free · Research phase
+        <p className="mt-4 max-w-[480px] text-sm text-gray-600">
+          Your feedback powers our next version.
         </p>
 
-        {/* BUTTONS */}
-        <div className="mt-10 flex items-center gap-4 max-md:flex-col max-md:w-full">
-          {/* PRIMARY */}
-          <a href="https://drive.google.com/file/d/168DbGCnrriI2q_XX1Tznobous-4OSEnK/view?usp=drive_link"
-            target="_blank"
-            ref={(el) => (buttonsRef.current[0] = el)}
+        {/* CTA */}
+        <div className="mt-10">
+          <a
+            ref={buttonRef}
+            href="https://forms.gle/scdEaCxtMJXhp9vi9"
             className="
-              flex items-center gap-2
+              inline-flex items-center gap-2
               rounded-full
-              bg-black
-              px-7 py-3
+              border border-gray-200
+              bg-white
+              px-8 py-3
               text-sm font-medium
-              text-white
-              shadow-[0_10px_30px_rgba(0,0,0,0.25)]
+              text-gray-800
+              shadow-sm
               whitespace-nowrap
+              transition
+              hover:bg-gray-50
             "
           >
-            <Smartphone className="h-4 w-4 text-white/80" />
-            Get it on Android
+            <MessageSquare className="h-4 w-4 text-gray-500" />
+            Share Feedback
           </a>
-
-          {/* SECONDARY */}
-          
         </div>
       </div>
     </section>

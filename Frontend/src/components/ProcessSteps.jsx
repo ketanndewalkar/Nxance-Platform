@@ -71,7 +71,7 @@ export default function ProcessSteps() {
   ];
 
   return (
-    <section id="work"
+    <section
       ref={sectionRef}
       className="relative w-full px-16 pt-32 pb-32 max-md:px-6"
     >

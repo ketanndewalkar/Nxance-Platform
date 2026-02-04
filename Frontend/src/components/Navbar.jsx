@@ -63,7 +63,7 @@ export default function Navbar() {
             { label: "Home", href: "#" },
             { label: "About", href: "#about" },
             {
-              label: "Contact Us",
+              label: "Feedback",
               href: "https://forms.gle/scdEaCxtMJXhp9vi9",
               external: true,
             },
@@ -71,23 +71,36 @@ export default function Navbar() {
             <li
               key={item.label}
               ref={(el) => (navItemRefs.current[i] = el)}
-              className="
-                relative opacity-0
-                cursor-pointer
-                transition-colors duration-200
-                hover:text-black
-                hover:font-semibold
-              "
+              className="relative opacity-0"
             >
               <a
                 href={item.href}
                 target={item.external ? "_blank" : undefined}
                 rel={item.external ? "noopener noreferrer" : undefined}
+                className="
+                  cursor-pointer
+                  transition-colors duration-200
+                  hover:text-black
+                  hover:font-semibold
+                "
               >
                 {item.label}
               </a>
             </li>
           ))}
+
+          <a href="https://drive.google.com/file/d/168DbGCnrriI2q_XX1Tznobous-4OSEnK/view?usp=drive_link"
+            target="_blank"
+            ref={(el) => (navItemRefs.current[3] = el)}
+            className="
+              cursor-pointer opacity-0
+              text-blue-500 font-medium
+              transition-colors duration-200
+              hover:text-blue-600
+            "
+          >
+            Download App
+          </a>
         </ul>
 
         {/* HAMBURGER */}
@@ -153,8 +166,14 @@ export default function Navbar() {
               href="https://forms.gle/scdEaCxtMJXhp9vi9"
               onClick={() => setOpen(false)}
             >
-              Contact Us
+              Feedback
             </a>
+            <span
+              className="font-semibold"
+              onClick={() => setOpen(false)}
+            >
+              Download App
+            </span>
           </nav>
 
           <div className="w-full mt-auto pt-6 border-t border-white/20 text-xs text-white/70">
